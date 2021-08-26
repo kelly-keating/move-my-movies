@@ -15,13 +15,13 @@ function App () {
 
   const clickHandler = (url, name) => {
 
-    const xhr = new XMLHttpRequest()
+    var xhr = new XMLHttpRequest()
     xhr.open('GET', url, true)
     xhr.responseType = 'blob'
-    xhr.onload = () => {
-      const urlCreator = window.URL || window.webkitURL
-      const imageUrl = urlCreator.createObjectURL(this.response)
-      const tag = document.createElement('a')
+    xhr.onload = function() {
+      var urlCreator = window.URL || window.webkitURL
+      var imageUrl = urlCreator.createObjectURL(this.response)
+      var tag = document.createElement('a')
       tag.href = imageUrl
       tag.target = '_blank'
       tag.download = name
